@@ -157,10 +157,10 @@ add_routes () {
     route add $(systemd-resolve --status |grep "DNS Servers:" |grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}') gw $(ip route |grep "default via" | grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' |grep -m1 "")
 
     #Add a new default route to start routing traffic via the VPN server (Disabled now)：
-    #route add default dev ppp0
+    route add default dev ppp0
 
     #Add route only for subnet inside Private Network
-    route add -net 192.168.5.0/20 dev ppp0
+    #route add -net 192.168.5.0/20 dev ppp0
 
     #Verify that your traffic is being routed properly:
     echo "This is new public IP:"$(wget -qO- http://ipv4.icanhazip.com)
