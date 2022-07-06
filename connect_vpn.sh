@@ -160,7 +160,7 @@ add_routes () {
     #route add default dev ppp0
 
     #Add route only for subnet inside Private Network
-    route add -net 192.168.5.0/20 gw 192.168.1.1
+    route add -net 192.168.5.0/20 dev ppp0
 
     #Verify that your traffic is being routed properly:
     echo "This is new public IP:"$(wget -qO- http://ipv4.icanhazip.com)
